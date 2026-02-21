@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=4 uid="uid://krm5k3qbjil6"]
+
+[ext_resource type="Script" uid="uid://bpyl7ep5g5y4k" path="res://Scripts/Rotate.gd" id="1_amvju"]
+[ext_resource type="Script" uid="uid://c5t06kaoefljy" path="res://Scripts/CharacterMovement.gd" id="2_p8r5b"]
+[ext_resource type="Texture2D" uid="uid://w1vm0ib8gkl7" path="res://icon.svg" id="3_apj2e"]
+[ext_resource type="TileSet" uid="uid://dv5pq4cqkyek7" path="res://Scenes/castle_tileset.tres" id="3_goot7"]
+[ext_resource type="PackedScene" uid="uid://cj1vyr6kvr67l" path="res://Scenes/crate.tscn" id="4_onmak"]
+[ext_resource type="Texture2D" uid="uid://duqvx7htykro6" path="res://Art/tree.png" id="5_gwuyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glao0"]
+size = Vector2(84.74408, 87.56566)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_amvju")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(696, 392)
+scale = Vector2(1.00302, 1.05064)
+collision_mask = 3
+script = ExtResource("2_p8r5b")
+movement_speed = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.49847412, -0.95181274)
+scale = Vector2(0.9999997, 1)
+shape = SubResource("RectangleShape2D_glao0")
+
+[node name="ParentLogo" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.747742, 0.713851)
+texture = ExtResource("3_apj2e")
+
+[node name="TileMap" type="Node" parent="."]
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAYAB4AAAADAAoAAAAYAB8AAAADAAsAAAAZAB4AAAAEAAoAAAAZAB8AAAAEAAsAAAAaAB4AAAAFAAoAAAAaAB8AAAAFAAsAAAAbAB4AAAAGAAoAAAAbAB8AAAAGAAsAAAAcAB4AAAADAAoAAAAcAB8AAAADAAsAAAAdAB4AAAAEAAoAAAAdAB8AAAAEAAsAAAAeAB4AAAAFAAoAAAAeAB8AAAAFAAsAAAAfAB4AAAAGAAoAAAAfAB8AAAAGAAsAAAAgAB4AAAADAAoAAAAgAB8AAAADAAsAAAAhAB4AAAAEAAoAAAAhAB8AAAAEAAsAAAAiAB4AAAAFAAoAAAAiAB8AAAAFAAsAAAAjAB4AAAAGAAoAAAAjAB8AAAAGAAsAAAAkAB4AAAADAAoAAAAkAB8AAAADAAsAAAAlAB4AAAAEAAoAAAAlAB8AAAAEAAsAAAAmAB4AAAAFAAoAAAAmAB8AAAAFAAsAAAAnAB4AAAAGAAoAAAAnAB8AAAAGAAsAAAAoAB4AAAADAAoAAAAoAB8AAAADAAsAAAApAB4AAAAEAAoAAAApAB8AAAAEAAsAAAAqAB4AAAAFAAoAAAAqAB8AAAAFAAsAAAArAB4AAAAGAAoAAAArAB8AAAAGAAsAAAAsAB4AAAADAAoAAAAsAB8AAAADAAsAAAAtAB4AAAAEAAoAAAAtAB8AAAAEAAsAAAAuAB4AAAAFAAoAAAAuAB8AAAAFAAsAAAAvAB4AAAAGAAoAAAAvAB8AAAAGAAsAAAAwABoAAAAKAAYAAAAwABsAAAAKAAQAAAAwABwAAAAKAAUAAAAwAB0AAAAKAAYAAAAxABoAAAALAAYAAAAxABsAAAALAAQAAAAxABwAAAALAAUAAAAxAB0AAAALAAYAAAAwABcAAAAKAAYAAAAwABgAAAAKAAQAAAAwABkAAAAKAAUAAAAxABcAAAALAAYAAAAxABgAAAALAAQAAAAxABkAAAALAAUAAAAwABYAAAAKAAUAAAAxABYAAAALAAUAAAAwABQAAAAKAAYAAAAwABUAAAAKAAQAAAAxABQAAAALAAYAAAAxABUAAAALAAQAAAAwABIAAAAKAAQAAAAwABMAAAAKAAUAAAAxABIAAAALAAQAAAAxABMAAAALAAUAAAAwABAAAAAKAAUAAAAwABEAAAAKAAYAAAAxABAAAAALAAUAAAAxABEAAAALAAYAAAAwAA4AAAAKAAYAAAAwAA8AAAAKAAQAAAAxAA4AAAALAAYAAAAxAA8AAAALAAQAAAAwAAwAAAAKAAQAAAAwAA0AAAAKAAUAAAAxAAwAAAALAAQAAAAxAA0AAAALAAUAAAATAB4AAAADAAoAAAATAB8AAAADAAsAAAAUAB4AAAADAAoAAAAUAB8AAAADAAsAAAAVAB4AAAAEAAoAAAAVAB8AAAAEAAsAAAAWAB4AAAAFAAoAAAAWAB8AAAAFAAsAAAAXAB4AAAAGAAoAAAAXAB8AAAAGAAsAAAASAB4AAAACAAoAAAASAB8AAAACAAsAAAAwAB4AAAAiAAoAAAAwAB8AAAAiAAsAAAAxAB4AAAAjAAoAAAAxAB8AAAAjAAsAAAA=")
+tile_set = ExtResource("3_goot7")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 56.0
+offset_top = 80.0
+offset_right = 328.0
+offset_bottom = 304.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 296.0
+theme_override_colors/default_color = Color(0.278447, 0.549096, 0.748898, 1)
+text = "Everything is wrong. Godotbot falls through the floor and some kind of force field blocks its path. Something is missing that should be here, and something is here that should be missing.
+
+Fix the scene so everything is right."
+
+[node name="Crate2" parent="." instance=ExtResource("4_onmak")]
+position = Vector2(376, 376)
+gravity_scale = 1.0
+
+[node name="Crate" parent="." instance=ExtResource("4_onmak")]
+position = Vector2(400, 448)
+gravity_scale = 1.0
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(544.00006, 352.00003)
+scale = Vector2(0.296856, 0.296856)
+texture = ExtResource("5_gwuyb")
+
+[node name="Crate3" parent="." instance=ExtResource("4_onmak")]
+position = Vector2(392, 296)
+gravity_scale = 1.0

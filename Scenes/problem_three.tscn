@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=4 uid="uid://bax45o80geffd"]
+
+[ext_resource type="Script" uid="uid://bpyl7ep5g5y4k" path="res://Scripts/Rotate.gd" id="1_354yi"]
+[ext_resource type="PackedScene" uid="uid://7le76tsvkmlt" path="res://Scenes/player.tscn" id="2_aa3ml"]
+[ext_resource type="TileSet" uid="uid://dv5pq4cqkyek7" path="res://Scenes/castle_tileset.tres" id="3_0a4x0"]
+[ext_resource type="PackedScene" uid="uid://cj1vyr6kvr67l" path="res://Scenes/crate.tscn" id="4_jxx4j"]
+[ext_resource type="Texture2D" uid="uid://duqvx7htykro6" path="res://Art/tree.png" id="5_5oy7u"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_354yi")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_aa3ml")]
+collision_mask = 3
+motion_mode = 0
+movement_speed = 150.0
+
+[node name="TileMap" type="Node" parent="."]
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAYAB4AAAADAAoAAAAYAB8AAAADAAsAAAAZAB4AAAAEAAoAAAAZAB8AAAAEAAsAAAAaAB4AAAAFAAoAAAAaAB8AAAAFAAsAAAAbAB4AAAAGAAoAAAAbAB8AAAAGAAsAAAAcAB4AAAADAAoAAAAcAB8AAAADAAsAAAAdAB4AAAAEAAoAAAAdAB8AAAAEAAsAAAAeAB4AAAAFAAoAAAAeAB8AAAAFAAsAAAAfAB4AAAAGAAoAAAAfAB8AAAAGAAsAAAAgAB4AAAADAAoAAAAgAB8AAAADAAsAAAAhAB4AAAAEAAoAAAAhAB8AAAAEAAsAAAAiAB4AAAAFAAoAAAAiAB8AAAAFAAsAAAAjAB4AAAAGAAoAAAAjAB8AAAAGAAsAAAAkAB4AAAADAAoAAAAkAB8AAAADAAsAAAAlAB4AAAAEAAoAAAAlAB8AAAAEAAsAAAAmAB4AAAAFAAoAAAAmAB8AAAAFAAsAAAAnAB4AAAAGAAoAAAAnAB8AAAAGAAsAAAAoAB4AAAADAAoAAAAoAB8AAAADAAsAAAApAB4AAAAEAAoAAAApAB8AAAAEAAsAAAAqAB4AAAAFAAoAAAAqAB8AAAAFAAsAAAArAB4AAAAGAAoAAAArAB8AAAAGAAsAAAAsAB4AAAADAAoAAAAsAB8AAAADAAsAAAAtAB4AAAAEAAoAAAAtAB8AAAAEAAsAAAAuAB4AAAAFAAoAAAAuAB8AAAAFAAsAAAAvAB4AAAAGAAoAAAAvAB8AAAAGAAsAAAAwABoAAAAKAAYAAAAwABsAAAAKAAQAAAAwABwAAAAKAAUAAAAwAB0AAAAKAAYAAAAxABoAAAALAAYAAAAxABsAAAALAAQAAAAxABwAAAALAAUAAAAxAB0AAAALAAYAAAAwABcAAAAKAAYAAAAwABgAAAAKAAQAAAAwABkAAAAKAAUAAAAxABcAAAALAAYAAAAxABgAAAALAAQAAAAxABkAAAALAAUAAAAwABYAAAAKAAUAAAAxABYAAAALAAUAAAAwABQAAAAKAAYAAAAwABUAAAAKAAQAAAAxABQAAAALAAYAAAAxABUAAAALAAQAAAAwABIAAAAKAAQAAAAwABMAAAAKAAUAAAAxABIAAAALAAQAAAAxABMAAAALAAUAAAAwABAAAAAKAAUAAAAwABEAAAAKAAYAAAAxABAAAAALAAUAAAAxABEAAAALAAYAAAAwAA4AAAAKAAYAAAAwAA8AAAAKAAQAAAAxAA4AAAALAAYAAAAxAA8AAAALAAQAAAAwAAwAAAAKAAQAAAAwAA0AAAAKAAUAAAAxAAwAAAALAAQAAAAxAA0AAAALAAUAAAATAB4AAAADAAoAAAATAB8AAAADAAsAAAAUAB4AAAADAAoAAAAUAB8AAAADAAsAAAAVAB4AAAAEAAoAAAAVAB8AAAAEAAsAAAAWAB4AAAAFAAoAAAAWAB8AAAAFAAsAAAAXAB4AAAAGAAoAAAAXAB8AAAAGAAsAAAASAB4AAAACAAoAAAASAB8AAAACAAsAAAAwAB4AAAAiAAoAAAAwAB8AAAAiAAsAAAAxAB4AAAAjAAoAAAAxAB8AAAAjAAsAAAA=")
+tile_set = ExtResource("3_0a4x0")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 56.0
+offset_top = 80.0
+offset_right = 328.0
+offset_bottom = 296.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 288.0
+theme_override_colors/default_color = Color(0.278447, 0.549096, 0.748898, 1)
+text = "Where there is a tree, there is gravity (a fact established by Isaac Newton among others). Why then aren't our crates and Godotbot falling?
+
+Fix them so they work properly and obey the virtual laws of virtual physics."
+
+[node name="Crate2" parent="." instance=ExtResource("4_jxx4j")]
+position = Vector2(376, 376)
+gravity_scale = 1.0
+
+[node name="Crate" parent="." instance=ExtResource("4_jxx4j")]
+position = Vector2(400, 448)
+gravity_scale = 1.0
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(544, 352)
+scale = Vector2(0.296856, 0.296856)
+texture = ExtResource("5_5oy7u")
+
+[node name="Crate3" parent="." instance=ExtResource("4_jxx4j")]
+position = Vector2(392, 296)
+gravity_scale = 1.0
